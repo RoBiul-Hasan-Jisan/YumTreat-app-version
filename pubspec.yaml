@@ -1,0 +1,59 @@
+name: yumtreat
+description: YumTreat food ordering app (Flutter) — talks to the existing Express/Mongo/Firebase backend.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Firebase (matches backend's firebase-admin auth — no JWT, ID tokens only)
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.1
+  google_sign_in: ^6.2.1
+
+  # Networking
+  dio: ^5.7.0
+
+  # State management
+  provider: ^6.1.2
+
+  # Local cart persistence (mirrors the website's localStorage cart)
+  shared_preferences: ^2.3.2
+
+  # Icons similar to react-icons/fi (Feather) used on the site
+  cupertino_icons: ^1.0.8
+
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  # Generates every Android/iOS app icon size from one source image —
+  # run `dart run flutter_launcher_icons` after `flutter pub get`.
+  flutter_launcher_icons: ^0.14.1
+
+# Config for flutter_launcher_icons: generates the icon shown on a
+# phone's home screen after installing the app, from assets/icon/app_icon.png
+# (your real YumTreat logo). This is separate from in-app images.
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/app_icon.png"
+  # Android 13+ themed/adaptive icon: keeps the chef-hat mark centered on
+  # a plain background so it isn't cropped into a circle awkwardly.
+  adaptive_icon_background: "#FFFAF2"
+  adaptive_icon_foreground: "assets/icon/app_icon.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/foods/
+    - assets/images/categories/
+    - assets/images/misc/
+    - assets/images/logo.png
+    - assets/icon/app_icon.png
